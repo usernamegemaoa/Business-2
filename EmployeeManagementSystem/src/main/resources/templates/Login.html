@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>社員管理システム</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<header>
+		<h1>社員管理システム</h1>
+	</header>
+
+	<div class="login">
+		<!-- エラーメッセージ表示 -->
+		<div class="error">
+			<p th:if="${message}" th:text="${message}"></p>
+		</div>
+
+		<!-- ログインフォーム -->
+		<form th:action="@{/login}" method="post" th:object="${loginForm}">
+			<table>
+				<tr>
+					<td>ログインID</td>
+					<td><input type="text" th:field="*{loginId}" size="20"
+						maxlength="20" /></td>
+				</tr>
+				<tr>
+					<td>パスワード</td>
+					<td><input type="password" th:field="*{password}" size="20"
+						maxlength="20" /></td>
+				</tr>
+			</table>
+			<input type="submit" value="ログイン" />
+		</form>
+	</div>
+</body>
+</html>

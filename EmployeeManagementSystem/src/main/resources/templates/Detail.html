@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>社員管理システム</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<header>
+		<h1>社員詳細</h1>
+	</header>
+
+	<div class="detail">
+		<!-- 社員IDを取得した場合はtype=update、取得できなかった場合はtype=add -->
+		<form
+			th:action="${empId != null} ? @{/detail(type=update,empId=${empId})} : @{/detail(type=add)}"
+			method="post" th:object="${employeeForm}">
+			<table>
+				<tr>
+					<td>氏名</td>
+					<td><label> <input type="text" th:field="*{name}"
+							size="20" maxlength="20" />
+					</label></td>
+				</tr>
+				<tr>
+					<td>氏名（ひらがな）</td>
+					<td><label> <input type="text"
+							th:field="*{nameHiragana}" size="20" maxlength="20" />
+					</label></td>
+				</tr>
+				<tr>
+					<td>生年月日</td>
+					<td><label> <input type="text" th:field="*{birthday}"
+							size="10" maxlength="10" />例)2015/04/01
+					</label></td>
+				</tr>
+				<tr>
+					<td>性別</td>
+					<td><label th:each="s : ${sex}"> <input type="radio"
+							th:field="*{sex}" th:value="${s.getCode()}"
+							th:text="${s.toString()}" th:checked="${sex == s.getCode()}" />
+					</label></td>
+				</tr>
+				<tr>
+					<td>メールアドレス</td>
+					<td><label> <input type="text"
+							th:field="*{mailAddress}" size="50" maxlength="50" />
+					</label></td>
+				</tr>
+				<tr>
+					<td>電話番号</td>
+					<td><label> <input type="text"
+							th:field="*{telephoneNumber}" size="13" maxlength="13" />例)080-0000-0000
+					</label></td>
+				</tr>
+				<tr>
+					<td>所属会社</td>
+					<td><select th:field="*{companyInfoId}">
+							<option value="">選択してください</option>
+							<option th:each="company : ${companies}"
+								th:value="${companyStat.count}"
+								th:text="${company.abbreviation}"
+								th:selected="${companyInfoId == companyStat.count}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>担当管理営業</td>
+					<td><label> <input type="text"
+							th:field="*{businessManager}" size="20" maxlength="20" />
+					</label></td>
+				</tr>
+				<tr>
+					<td>事業部</td>
+					<td><select th:field="*{department}">
+							<option value="">選択してください</option>
+							<option th:each="department : ${departments}"
+								th:value="${departmentStat.count-1}"
+								th:text="${department.toString()}"
+								th:selected="${department == departmentStat.count-1}"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>稼働状況</td>
+					<td><label
+						th:each="commissioningStatus : ${commissioningStatus}"> <input
+							type="radio" th:field="*{commissioningStatus}"
+							th:value="${commissioningStatus.getCode()}"
+							th:text="${commissioningStatus.toString()}"
+							th:checked="${commissioningStatus == commissioningStatus.getCode()}" />
+					</label></td>
+				</tr>
+				<tr>
+					<td>入社日</td>
+					<td><label> <input type="text" th:field="*{enterDate}"
+							size="10" maxlength="10" />例)2015/04/01
+					</label></td>
+				</tr>
+				<tr>
+					<td>退職日</td>
+					<td><label> <input type="text"
+							th:field="*{retireDate}" size="10" maxlength="10" />例)2015/04/01
+					</label></td>
+				</tr>
+				<tr>
+					<td>ステータス</td>
+					<td><select th:field="*{status}">
+							<option value="">選択してください</option>
+							<option th:each="s : ${status}" th:value="${sStat.count-1}"
+								th:text="${s.toString()}"
+								th:selected="${status == sStat.count-1}"></option>
+					</select></td>
+				</tr>
+			</table>
+			<!-- 全エラーメッセージ表示 -->
+			<div class="error">
+				<ul th:each="error : ${#fields.detailedErrors()}">
+					<li th:text="${error.message}"></li>
+				</ul>
+			</div>
+			<!-- 社員IDを取得した場合は【更新する】ボタン表示 -->
+			<input th:if="${empId != null}" type="submit" value="更新する"
+				onclick="return confirm('更新しますか？')" />
+			<!-- 社員IDを取得できなかった場合は【登録する】ボタン表示 -->
+			<input th:if="${empId == null}" type="submit" value="登録する"
+				onclick="return confirm('登録しますか？')" />
+			<!-- 一覧画面に戻る -->
+			<input type="button" onclick="location.href='/list'" value="戻る" />
+		</form>
+	</div>
+</body>
+</html>

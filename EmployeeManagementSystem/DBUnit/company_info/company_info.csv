@@ -1,0 +1,5 @@
+company_id,company_name,abbreviation,is_deleted,created,modified,created_id,modified_id
+1,株式会社セキュアカーネル,SKE,0,2015-10-23 10:08:32,2015-10-23 10:08:32,testuser,testuser
+2,株式会社セキュアインフラストラクチャー,SIF,0,2015-10-23 14:51:10,2015-10-23 14:51:10,testuser,testuser
+3,株式会社セキュアオプティマイズ,SOP,0,2015-10-28 12:23:22,2015-10-28 12:23:22,testuser,testuser
+4,株式会社セキュアイノベーション,SIN,0,2015-10-28 15:20:35,2015-10-28 15:19:26,testuser,testuser

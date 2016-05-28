@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>社員管理システム</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<header>
+		<!-- ログアウトリンク -->
+		<a th:href="@{/logout}">ログアウト</a>
+		<h1>社員一覧</h1>
+		<!-- 新規登録ボタン -->
+		<form th:action="@{/detail/}" method="get">
+			<input type="submit" value="新規登録" />
+		</form>
+	</header>
+
+	<div class="list">
+		<table>
+			<!-- タイトル部分 -->
+			<tr>
+				<th>No</th>
+				<th>会社</th>
+				<th width="70">事業部</th>
+				<th width="150">氏名</th>
+				<th width="150">氏名（ひらがな）</th>
+				<th width="40">年齢</th>
+				<th width="100">担当管理営業</th>
+				<th>入社日</th>
+				<th width="70">稼働状況</th>
+				<th width="40">詳細</th>
+				<th width="40">削除</th>
+			</tr>
+
+			<!-- 社員情報を出力 -->
+			<tr th:each="employee : ${employees}">
+				<td th:text="${employeeStat.count}"></td>
+				<td th:text="${employee.abbreviation}"></td>
+				<td th:text="${departments[employee.department].toString()}"></td>
+				<td th:text="${employee.name}"></td>
+				<td th:text="${employee.nameHiragana}"></td>
+				<td th:text="${logic.formatAge(employee.birthday)}"></td>
+				<td th:text="${employee.businessManager}"></td>
+				<td th:text="${logic.formatDate(employee.enterDate)}"></td>
+				<td
+					th:text="${commissioningStatus[employee.commissioningStatus].toString()}"></td>
+				<td><a th:href="@{/detail(empId=${employee.employeeId})}">詳細</a>
+				</td>
+				<td><a th:href="@{/delete(empId=${employee.employeeId})}"
+					onclick="return confirm('【${employee.abbreviation}】【${employee.name}】を削除しますか？')">削除
+				</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

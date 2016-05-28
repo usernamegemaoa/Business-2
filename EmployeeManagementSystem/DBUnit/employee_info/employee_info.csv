@@ -1,0 +1,8 @@
+id,name,hiragana,birth,status,mail,teleohone,company,kanri,a,a,a,a,a,a,a,a,a,a,a
+85,宮田　欣輝,みやた よしき,1994-01-24,0,x.xxxx@secure-i.jp,080-0000-0000,1,八手,0,0,1,2016-03-16 22:56:40,0000-00-00 00:00:00,testuser,testuser,NULL,NULL,NULL,NULL
+86,建石,たていし,1989-01-01,0,x.xxxxx@secure-i.jp,080-0000-0000,2,柴,0,1,1,2016-03-16 23:01:42,0000-00-00 00:00:00,testuser,testuser,NULL,NULL,NULL,NULL
+87,岩本 敬,いわもと けい,1993-10-29,0,x.xxxx@secure-i.jp,080-0000-0000,2,柴,0,1,0,2015-10-29 13:03:20,0000-00-00 00:00:00,testuser,testuser,NULL,NULL,NULL,NULL
+88,建石,たていし,1989-01-01,0,x.xxxxx@secure-i.jp,080-0000-0000,2,柴,0,1,0,2016-03-13 22:08:40,0000-00-00 00:00:00,testuser,testuser,NULL,NULL,NULL,NULL
+89,石黒,いしぐろ,1988-08-15,0,x.xxxx@proud-i.jp,080-0000-0000,4,野村,0,1,0,2016-03-13 20:07:15,0000-00-00 00:00:00,testuser,testuser,NULL,NULL,NULL,NULL
+90,倉前,くらまえ,1989-01-01,1,x.xxxx@secure-i.jp,080-0000-0000,2,しらない,1,1,0,2016-03-13 20:07:25,0000-00-00 00:00:00,testuser,testuser,NULL,NULL,NULL,NULL
+91,本橋,もとはし,1995-01-01,0,x.xxxx@proud-i.jp,080-0000-0000,4,渡邊,0,0,0,2015-10-29 12:25:17,0000-00-00 00:00:00,testuser,testuser,NULL,NULL,NULL,NULL
